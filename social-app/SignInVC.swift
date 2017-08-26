@@ -10,18 +10,21 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
 
+    // this method cannot perform segues it is too early in the process
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        super.viewDidLoad()    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            performSegue(withIdentifier: "FeedVC", sender: nil)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func fbButtonTapped(_ sender: Any) {
         let facebookLogin = FBSDKLoginManager()
@@ -49,11 +52,16 @@ class SignInVC: UIViewController {
                         if error != nil {
                             print("JESS: Unable to authenticate with Firebase using email")
                         } else {
+                            self.completeSignIn(id: (user?.uid)!)
                             print("JESS: Successfully authenticated with Firebase")
                         }
                     })
                 } else {
                     print("JESS: Successfully authenticated with Firebase")
+                    if let user = user {
+                        self.completeSignIn(id: user.uid)
+                    }
+                    
                 }
             })
         }
@@ -66,8 +74,15 @@ class SignInVC: UIViewController {
                 print("JESS: Unable to authenticate with Firebase - \(error!)")
             } else {
                 print("JESS: Successfully authenticated with Firebase")
+                self.completeSignIn(id: (user?.uid)!)
             }
         }
+    }
+    
+    func completeSignIn(id: String) {
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("JESS: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: "FeedVC", sender: nil)
     }
 
 }

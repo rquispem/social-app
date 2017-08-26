@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45C42D751F51EF5B00ABC902 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C42D741F51EF5B00ABC902 /* FeedVC.swift */; };
 		45EF43591F50B105002BD2DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF43581F50B105002BD2DC /* AppDelegate.swift */; };
 		45EF435B1F50B105002BD2DC /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF435A1F50B105002BD2DC /* SignInVC.swift */; };
 		45EF435E1F50B105002BD2DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EF435C1F50B105002BD2DC /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45C42D741F51EF5B00ABC902 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		45EF43551F50B105002BD2DC /* social-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "social-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45EF43581F50B105002BD2DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45EF435A1F50B105002BD2DC /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				45EF435A1F50B105002BD2DC /* SignInVC.swift */,
+				45C42D741F51EF5B00ABC902 /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -258,6 +262,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -292,6 +297,7 @@
 				45EF435B1F50B105002BD2DC /* SignInVC.swift in Sources */,
 				45F9F49E1F50D028002E81BB /* RoundButton.swift in Sources */,
 				45F9F4A21F50D429002E81BB /* FancyButton.swift in Sources */,
+				45C42D751F51EF5B00ABC902 /* FeedVC.swift in Sources */,
 				45EF43591F50B105002BD2DC /* AppDelegate.swift in Sources */,
 				45F9F4991F50CC66002E81BB /* FancyView.swift in Sources */,
 				45F9F49C1F50CD16002E81BB /* Constants.swift in Sources */,
