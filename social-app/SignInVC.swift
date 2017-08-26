@@ -38,6 +38,27 @@ class SignInVC: UIViewController {
             }
         }
     }
+    @IBOutlet weak var txtEmail: FancyField!
+    @IBOutlet weak var txtPassword: FancyField!
+    
+    @IBAction func signInTapped(_ sender: Any) {
+        if let email = txtEmail.text, let pass = txtPassword.text {
+            Auth.auth().signIn(withEmail: email, password: pass, completion: { (user, error) in
+                if error != nil {
+                    Auth.auth().createUser(withEmail: email, password: pass, completion: { (user, error) in
+                        if error != nil {
+                            print("JESS: Unable to authenticate with Firebase using email")
+                        } else {
+                            print("JESS: Successfully authenticated with Firebase")
+                        }
+                    })
+                } else {
+                    print("JESS: Successfully authenticated with Firebase")
+                }
+            })
+        }
+    }
+    
     
     func firebaseAuth(_ credential: AuthCredential) {
         Auth.auth().signIn(with: credential) { (user, error) in
